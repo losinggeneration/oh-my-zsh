@@ -64,6 +64,7 @@ plugins=(
   git
   git-extras
   git-flow
+  kubeconfig
   systemd
   tmux
   vi-mode
