@@ -60,6 +60,7 @@ ZSH_THEME="losinggeneration"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  cmd-completions
   docker
   git
   git-extras
@@ -114,8 +115,6 @@ export ANDROID_SDK=/opt/android
 export ANDROID_HOME=/opt/android
 export ANDROID_NDK_ROOT=/opt/android-ndk-r8e
 
-PATH=$HOME/Programs/bin:$PATH:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$HOME/.luarocks/bin:$HOME/.local/bin:$GEMPATH:$ANDROIDPATH
-
 # Google Go Programming Language
 if [ "$(command -v go)" ]; then
 export GOROOT_BOOTSTRAP=$(dirname $(go env GOROOT))/src-bootstrap
@@ -130,9 +129,14 @@ export XAUTHORITY=$HOME/.Xauthority
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export CHIBI_MODULE_PATH=$HOME/.local/share/chibi-scheme
 
+export PATH=$HOME/Programs/bin:$PATH:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin:$PATH
+export PATH=$PATH:$HOME/.luarocks/bin:$HOME/.local/bin:$GEMPATH:$ANDROIDPATH
 unset ANDROIDPATH GEMPATH
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Required because some completions are in local paths not the defaults
+load_cmd_completions
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
