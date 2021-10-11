@@ -9,21 +9,22 @@ export XAUTHORITY=$HOME/.Xauthority
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export CHIBI_MODULE_PATH=$HOME/.local/share/chibi-scheme
 
-appendpath () {
+appendpath() {
 	if [ -d "$1" ]; then
 		case ":$PATH:" in
-			*:"$1":*)
-				;;
-			*)
-				PATH="${PATH:+$PATH:}$1"
+		*:"$1":*) ;;
+
+		*)
+			PATH="${PATH:+$PATH:}$1"
+			;;
 		esac
 	fi
 }
 
 appendpath "$HOME/Programs/bin"
 if [ "$IS_MUSL" ]; then
-    appendpath "$HOME/Programs/musl"
-    export GOBIN="$HOME/Programs/musl"
+	appendpath "$HOME/Programs/musl"
+	export GOBIN="$HOME/Programs/musl"
 fi
 
 appendpath 'usr/local/bin'

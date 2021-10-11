@@ -60,17 +60,17 @@ ZSH_THEME="losinggeneration"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  cmd-completions
-  docker
-  git
-  git-extras
-  git-flow
-  kubeconfig
-  systemd
-  tmux
-  vi-mode
-  web-search
-  yarn
+	cmd-completions
+	docker
+	git
+	git-extras
+	git-flow
+	kubeconfig
+	systemd
+	tmux
+	vi-mode
+	web-search
+	yarn
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -82,11 +82,6 @@ unsetopt beep
 
 autoload zmv
 
-# setup some VI mode settings to be a easier for things like searching
-bindkey "^S" history-incremental-pattern-search-backward
-bindkey "^F" history-incremental-pattern-search-forward
-
-
 # Required because some completions are in local paths not the defaults
 load_cmd_completions
 
@@ -95,3 +90,9 @@ load_cmd_completions
 
 # Include other configuration
 [ -e "/etc/zsh_command_not_found" ] && source /etc/zsh_command_not_found
+
+# Local install config
+[ -e "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
+
+# fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -13,17 +13,15 @@ else
 	function tmux_refresh { }
 fi
 
-function preexec {
+preexec() {
 	tmux_refresh
 }
 
-function mp3normalize
-{
+mp3normalize() {
 	find . -iname '*.mp3' -exec dirname "{}" \; | sort -u | while read line; do mp3gain -s i -a -q -k "$line"/*.mp3; done
 }
 
-function vorbisnormalize
-{
+vorbisnormalize() {
 	# This scans every single directory and even if there are no vorbis files reports "Tags present; no files processed"
 	# This seems sub-optimal, rather, te build the directory list up-front and loop over those
 #	vorbisgain -afrs .
@@ -31,23 +29,19 @@ function vorbisnormalize
 	find . -iname '*.ogg' -exec dirname "{}" \; | sort -u | while read line; do vorbisgain -afsn "$line"; done
 }
 
-function wine32
-{
+wine32() {
 	WINEPREFIX=~/.wine32 WINEARCH=win32 wine $*
 }
 
-function winetricks32
-{
+winetricks32() {
 	WINEPREFIX=~/.wine32 WINEARCH=win32 winetricks $*
 }
 
-function winecfg32
-{
+winecfg32() {
 	WINEPREFIX=~/.wine32 WINEARCH=win32 /usr/bin/winecfg32 $*
 }
 
-function git_diff_add
-{
+git_diff_add() {
 	for i in $*; do
 		git diff -w "./$i"
 		echo "Add file? (y/n)"
@@ -56,21 +50,19 @@ function git_diff_add
 	done
 }
 
-function apt-cache()
-{
-    local search=""
-    # Initial space will be optional if no options are given
-    [ "$(echo "$*" | grep -E '[[:space:]]*search[[:space:]]')" ] && search=true
+apt-cache() {
+	local search=""
+	# Initial space will be optional if no options are given
+	[ "$(echo "$*" | grep -E '[[:space:]]*search[[:space:]]')" ] && search=true
 
-    if [ "$search" ]; then
-            command apt-cache $* | sort
-    else
-            command apt-cache $*
-    fi
+	if [ "$search" ]; then
+		command apt-cache $* | sort
+	else
+		command apt-cache $*
+	fi
 }
 
-function dub()
-{
+dub() {
 	if [ $# = 0 ]; then
 		echo "Usage: $0 <lua file>"
 		echo "<lua file> should be a lua file using dub to, for example, generate bindings."
@@ -96,8 +88,7 @@ function $i()
 }
 done
 
-function markdown()
-{
+markdown() {
 	lua5.1 <(echo "$(cat << EOLUA
 		discount=require("discount")
 		if #arg > 0 then
@@ -127,8 +118,7 @@ EOLUA
 	)") $*
 }
 
-function mdcat()
-{
+mdcat() {
 	if [ $# = 0 ]; then
 		markdown | pandoc -t plain -f html
 	else
@@ -136,18 +126,15 @@ function mdcat()
 	fi
 }
 
-function mdmore()
-{
+mdmore() {
 	mdcat $* | more
 }
 
-function mdless()
-{
+mdless() {
 	mdcat $* | less
 }
 
-function psgrep()
-{
+psgrep() {
 	ps -eF | head -n1
 	if [ "$*" ]; then
 		ps -eF | tail -n+2 | grep "$*"
