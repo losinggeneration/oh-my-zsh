@@ -77,6 +77,10 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+HISTSIZE=15000
+HIST_IGNORE_SPACE=1
+SAVEHIST=15000
+APPEND_HISTORY=1
 setopt appendhistory extendedglob nomatch notify CLOBBER DVORAK hist_ignore_dups
 unsetopt beep
 
