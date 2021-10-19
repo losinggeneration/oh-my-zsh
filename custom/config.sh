@@ -86,7 +86,7 @@ unsetopt beep
 
 autoload zmv
 
-# Required because some completions are in local paths not the defaults
+# Required because some completions are in paths added here, which are after plugins init
 load_cmd_completions
 
 # Remove console beeps
@@ -97,6 +97,3 @@ load_cmd_completions
 
 # Local install config
 [ -e "$HOME/.zshrc.local" ] && source $HOME/.zshrc.local
-
-# fuzzy finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
