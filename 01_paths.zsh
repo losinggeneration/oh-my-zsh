@@ -27,7 +27,7 @@ if [ "$IS_MUSL" ]; then
 	export GOBIN="$HOME/Programs/musl"
 fi
 
-appendpath 'usr/local/bin'
+appendpath '/usr/local/bin'
 appendpath '/sbin'
 appendpath '/usr/sbin'
 appendpath '/usr/local/sbin'
