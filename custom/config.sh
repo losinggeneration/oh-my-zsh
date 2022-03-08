@@ -65,12 +65,12 @@ plugins=(
 	git
 	git-extras
 	git-flow
+	golang
 	kubeconfig
 	systemd
 	tmux
 	vi-mode
 	web-search
-	yarn
 )
 
 source $ZSH/oh-my-zsh.sh
