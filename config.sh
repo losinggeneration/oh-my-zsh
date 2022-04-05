@@ -55,6 +55,9 @@ ZSH_THEME="losinggeneration"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# Use powerline-go to set the terminal prompt
+# ZSH_IVE_GOT_THE_POWER_____LINE="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
