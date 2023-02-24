@@ -21,20 +21,27 @@ appendpath() {
 	fi
 }
 
+# Clear path first
+PATH=""
+
 appendpath "$HOME/Programs/bin"
 if [ "$IS_MUSL" ]; then
 	appendpath "$HOME/Programs/musl"
 	export GOBIN="$HOME/Programs/musl"
 fi
 
+# Other useful language package installers
+appendpath "$HOME/.local/bin"
+appendpath "$HOME/.luarocks/bin"
+appendpath "$HOME/.cargo/bin"
+appendpath "$HOME/.yarn/bin"
+appendpath "$HOME/.config/yarn/global/node_modules/.bin"
+appendpath '/opt/android-sdk/platform-tools'
+
+# Add system paths
 appendpath '/usr/local/bin'
+appendpath '/usr/local/sbin'
 appendpath '/sbin'
 appendpath '/usr/sbin'
-appendpath '/usr/local/sbin'
-appendpath '/opt/android-sdk/platform-tools'
-appendpath "$HOME/.gem/ruby/1.9.1/bin"
-appendpath "$HOME/.luarocks/bin"
-appendpath "$HOME/.local/bin"
-appendpath "$HOME/.yarn/bin"
-appendpath "$HOME/.cargo/bin"
-appendpath "$HOME/.config/yarn/global/node_modules/.bin"
+appendpath '/bin'
+appendpath '/usr/bin'
