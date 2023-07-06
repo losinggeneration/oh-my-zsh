@@ -1,0 +1,7 @@
+/plugins/example
+/themes/example*
+/completions
+example.zsh
+
+*~
+*zsh*history
