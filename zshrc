@@ -90,4 +90,4 @@ else
 fi
 
 # Oh My Zsh default config stuff
-[ -e "$HOME/.oh-my-zsh/config.sh" ] && source "$HOME/.oh-my-zsh/custom/config.sh"
+[ -e "$HOME/.oh-my-zsh/custom/config.sh" ] && source "$HOME/.oh-my-zsh/custom/config.sh"
