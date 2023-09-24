@@ -76,7 +76,7 @@ dub() {
 	command lua5.1 -llubyk -e 'lk.Dir.sep="/"' $*
 }
 
-for i in lua lua5.2 lua5.1 luajit; do
+for i in lua lua5.2 lua5.1 luajit lua5.3 lua5.4; do
 function $i()
 {
 	# Get Lua's version
