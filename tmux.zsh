@@ -1,13 +1,29 @@
-# remove aliases added by tmux plugin to change the prefix from t to tm
+# remove functions & aliases added by tmux plugin to change the prefix from t to tm
 
-unalias ta tad ts tl tksv tkss
+unfunction ta tad ts tkss
+unalias tksv tl
 
-alias tma='tmux attach -t'
-alias tmad='tmux attach -d -t'
-alias tms='tmux new-session -s'
-alias tml='tmux list-sessions'
+function _build_tmux_alias {
+  eval "function $1 {
+    if [[ -z \$1 ]] || [[ \${1:0:1} == '-' ]]; then
+      tmux $2 \"\$@\"
+    else
+      tmux $2 $3 \"\$@\"
+    fi
+  }"
+}
+
 alias tmksv='tmux kill-server'
-alias tmkss='tmux kill-session -t'
+alias tml='tmux list-sessions'
+alias tmuxconf='$EDITOR $ZSH_TMUX_CONFIG'
+
+_build_tmux_alias "tma" "attach" "-t"
+_build_tmux_alias "tmad" "attach -d" "-t"
+_build_tmux_alias "tms" "new-session" "-s"
+_build_tmux_alias "tmkss" "kill-session" "-t"
+
+
+unfunction _build_tmux_alias
 
 # a couple more custom aliases
 alias tmd='tmux detach'
