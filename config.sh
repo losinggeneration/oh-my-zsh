@@ -92,8 +92,8 @@ autoload zmv
 fpath+="${0:A:h}/completions"
 
 # Required because some completions are in paths added here, which are after plugins init
-_omz_cmd_completions_load
 compinit
+_omz_cmd_completions_load
 
 # Remove console beeps
 #[ "$(uname -s)" = "Linux" -a "$TERM" = "xterm" ] && setterm -blength 0
