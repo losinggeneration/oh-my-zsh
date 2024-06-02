@@ -1,0 +1,3 @@
+autoload bashcompinit
+bashcompinit
+register-python-argcomplete pmbootstrap

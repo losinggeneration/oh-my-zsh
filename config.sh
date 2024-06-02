@@ -92,7 +92,7 @@ autoload zmv
 fpath+="${0:A:h}/completions"
 
 # Required because some completions are in paths added here, which are after plugins init
-load_cmd_completions
+_omz_cmd_completions_load
 compinit
 
 # Remove console beeps
