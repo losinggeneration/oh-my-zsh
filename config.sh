@@ -65,6 +65,7 @@ ZSH_THEME="losinggeneration"
 plugins=(
 	cmd-completions
 	docker
+	fzf
 	git
 	git-extras
 	git-flow
