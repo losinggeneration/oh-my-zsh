@@ -39,8 +39,9 @@ alias dig-ns2='dig @ns2.ics-llc.net'
 # Unzip from a stream
 alias unzip-stream="python2 -c \"import zipfile,sys,StringIO;zipfile.ZipFile(StringIO.StringIO(sys.stdin.read())).extractall(sys.argv[1] if len(sys.argv) == 2 else '.')\""
 
-export DC=/opt/homebrew/dc
+export DC=/var/local/toolchains/dc
 alias source_kos="source $DC/kos/environ.sh"
+alias dcarp="arp -s 192.168.1.7 00:d0:f1:02:b8:dd"
 # Alias CMake to use ninja by default
 alias cmake="cmake -G Ninja"
 alias ccmake="ccmake -G Ninja"
