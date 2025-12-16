@@ -12,4 +12,4 @@ plugins=(... kubeconfig)
 
 | Name              | Description                                                           |
 |:------------------|:----------------------------------------------------------------------|
-| reload-kubeconfig | Reload KUBECONFIG from multiple files in `$HOME/.kube/config.d/*.yml` |
+| reload-kubeconfig | Reload KUBECONFIG from multiple files in `$HOME/.kube/config.d/${1:+$1/}*.yml` |
