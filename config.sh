@@ -75,6 +75,7 @@ plugins=(
 	tmux
 	vi-mode
 	web-search
+	z
 )
 
 source $ZSH/oh-my-zsh.sh
