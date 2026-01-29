@@ -1,5 +1,6 @@
 # Linux only aliases
 if [ "$(uname -s)" = "Linux" ]; then
+  alias lst="ls --sort=time"
 	alias ls="ls --color"
 	alias nls="ls --color=none"
 	alias mv='mv -n'
